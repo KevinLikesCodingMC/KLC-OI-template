@@ -1,7 +1,8 @@
 struct mint{
 	int x;
 	mint(int a = 0) {
-		x = a;
+		x = a % P;
+		x = (x + P) % P;
 	}
 	bool operator < (const mint &b) const {
 		return x < b.x;
@@ -101,6 +102,9 @@ struct mint{
 	}
 	int val() {
 		return x;
+	}
+	friend ostream& operator << (ostream &os, const mint &a) {
+		return os << a.x;
 	}
 };
 mint fp(mint x,int y) {
